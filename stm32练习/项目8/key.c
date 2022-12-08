@@ -1,42 +1,42 @@
 /*************************************
- ************°´¼üÒı½ÅÅäÖÃ*************
+ ************æŒ‰é”®å¼•è„šé…ç½®*************
  *************************************/
 #include "stm32f10x.h"
 #include "key.h"
 #include "delay.h"
 void KEY_Init(void)
 {
-    GPIO_InitTypeDef GPIO_key; //±äÁ¿¶¨Òå¡°GPIO_key¡±
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //Ê¹ÄÜGPIOCÊ±ÖÓ£¨´ò¿ªÒı½ÅPCµÄÇ°Ìá£©
-	GPIO_key.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3;  //Ê¹ÓÃPc0~Pc3Òı½Å
-	GPIO_key.GPIO_Mode  = GPIO_Mode_IPU;   //Òı½ÅÅäÖÃÎªÉÏÀ­ÊäÈë
-	GPIO_key.GPIO_Speed = GPIO_Speed_50MHz;   //ÉèÖÃPcÒı½ÅËÙ¶ÈÎª50MHz
-	GPIO_Init(GPIOC, &GPIO_key);      //³õÊ¼»¯ÅäÖÃµÄÒı½Å	    
+    GPIO_InitTypeDef GPIO_key; //å˜é‡å®šä¹‰â€œGPIO_keyâ€
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //ä½¿èƒ½GPIOCæ—¶é’Ÿï¼ˆæ‰“å¼€å¼•è„šPCçš„å‰æï¼‰
+	GPIO_key.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3;  //ä½¿ç”¨Pc0~Pc3å¼•è„š
+	GPIO_key.GPIO_Mode  = GPIO_Mode_IPU;   //å¼•è„šé…ç½®ä¸ºä¸Šæ‹‰è¾“å…¥
+	GPIO_key.GPIO_Speed = GPIO_Speed_50MHz;   //è®¾ç½®Pcå¼•è„šé€Ÿåº¦ä¸º50MHz
+	GPIO_Init(GPIOC, &GPIO_key);      //åˆå§‹åŒ–é…ç½®çš„å¼•è„š	    
 } 
 u8 KEY_Scan(void)
 {
-    static u8 key_up=1; GPIO_ResetBits(GPIOA,GPIO_Pin_0); //°´¼üËÉ¿ª	
+    static u8 key_up=1; //æŒ‰é”®æ¾å¼€	
 	if(key_up&&(KEY1==0||KEY2==0||KEY3==0||KEY4==0))
 	{
-	    Delay(15);  //ÑÓÊ±£¬È¥¶¶¶¯
+	    Delay(15);  //å»¶æ—¶ï¼Œå»æŠ–åŠ¨
 		key_up=0;
 		if(KEY1==0)
 		{
-		    return 1;  //k1°´ÏÂ
+		    return 1;  //k1æŒ‰ä¸‹
 		}
 		else if(KEY2==0)
 		{
-		    return 2;  //k2°´ÏÂ
+		    return 2;  //k2æŒ‰ä¸‹
 		}
 		else if(KEY3==0)
 		{
-		    return 3;  //k3°´ÏÂ
+		    return 3;  //k3æŒ‰ä¸‹
 		}else if(KEY4==0)
 		{
-		    return 4;  //k4°´ÏÂ
+		    return 4;  //k4æŒ‰ä¸‹
 		}
 	}
 	else if(KEY1==1&&KEY2==1&&KEY3==1&&KEY4==1)
-	    key_up=1; //Ã»ÓĞ°´¼ü°´ÏÂ
+	    key_up=1; //æ²¡æœ‰æŒ‰é”®æŒ‰ä¸‹
 	return 0;
 }
