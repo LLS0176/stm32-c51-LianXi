@@ -41,4 +41,3 @@ void delay1s()
     	TF1=0;
 	}
 }
-
