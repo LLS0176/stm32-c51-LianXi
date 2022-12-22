@@ -1,0 +1,3 @@
+".\obj\cx\main.obj" 
+TO ".\obj\cx\C51-N7" 
+PRINT(".\C51-N7.m51")

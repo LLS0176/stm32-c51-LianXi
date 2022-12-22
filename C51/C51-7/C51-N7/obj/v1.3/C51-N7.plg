@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\C51-N7\C51-N7.uvproj
+Project File Date:  12/20/2022
+
+<h2>Output:</h2>
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'C51-N7'
+linking...
+Program Size: data=9.0 xdata=0 code=118
+creating hex file from ".\obj\v1.3\C51-N7"...
+".\obj\v1.3\C51-N7" - 0 Error(s), 0 Warning(s).
+Build target 'C51-N7'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=118
+creating hex file from ".\obj\cx\C51-N7"...
+".\obj\cx\C51-N7" - 0 Error(s), 0 Warning(s).
